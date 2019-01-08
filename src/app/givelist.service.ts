@@ -13,19 +13,19 @@ export class GivelistService {
     return this.http.get('assets/test.json');
   }
 
-  listViewCreate() {
-    return new Promise(resolve => {
-      // make new Promise
-      this.getData().subscribe((res: any[]) => {
-        // get all stories id list
-        Promise.all(res).then(items => {
-          // waiting for 'requests' generation
-          resolve({
-            total: res.length, // return all stories length
-            items: items, // return information array
-          });
-        });
-      });
-    });
-  }
+  // listViewCreate() {
+  //   return new Promise(resolve => {
+  //     // make new Promise
+  //     this.getData().subscribe((res: any[]) => {
+  //       // get all stories id list
+  //       Promise.all(res).then(items => {
+  //         // waiting for 'requests' generation
+  //         resolve({
+  //           total: res.length, // return all stories length
+  //           items: items, // return information array
+  //         });
+  //       });
+  //     });
+  //   });
+  // }
 }

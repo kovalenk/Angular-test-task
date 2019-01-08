@@ -1,19 +1,89 @@
 <div class="tablet-component">
-  <table>
-    <tr>
-      <td></td>
-    </tr>
-  </table>
+    <table>
+      <tr class="header">
+        <td *ngFor="let items of table_title" [class]="items.class">
+          {{items.title}}
+        </td>
+      </tr>
+      <tr *ngFor="let items of current_array" class="info">
+        <td>
+          {{items.event_id}}
+        </td>
+        <td class="x3">
+          {{items.name}}
+        </td>
+        <td class="x2">
+          {{items.section}}
+        </td>
+        <td>
+          {{items.venue}}
+        </td>
+        <td>
+          {{items.price}}
+        </td>
+        <td class="x2">
+          {{items.initial_price}}
+        </td>
+        <td>
+          {{items.currency}}
+        </td>
+        <td>
+          {{items.date}}
+        </td>
+        <td>
+          {{items.available_tickets}}
+        </td>
+        <td>
+          {{items.published}}
+        </td>
+        <td>
+          {{items.autocorrection}}
+        </td>
+        <td>
+          {{items.notification}}
+        </td>
+        <td>
+          {{items.all_sectors}}
+        </td>
+        <td class="x3">
+          {{items.all_venues}}
+        </td>
+        <td>
+          {{items.ignore_notes}}
+        </td>
+        <td>
+          {{items.min_price}}
+        </td>
+        <td>
+          {{items.max_price}}
+        </td>
+        <td>
+          {{items.indent}}
+        </td>
+        <td>
+          {{items.min_tickets}}
+        </td>
+      </tr>
+    </table>
 
   <div class="pagination-config">
     <div class="items-per-page">
       <span> Items per page: </span>
+
+      <div class="dropdown">
+
+      </div>
     </div>
-    <!--<div class="current-page">-->
-      <!--{{page_current}} - {{per_page}} of {{items_length}}-->
-    <!--</div>-->
+    <div class="current-page">
+      {{page_current}} - {{per_page}} of {{items_length}}
+    </div>
     <div class="slide">
-      <app-svg name="arrow-right"></app-svg>
+      <div class="slide-prev">
+        <app-svg name="arrow-right"></app-svg>
+      </div>
+      <div class="slide-next">
+        <app-svg name="arrow-right"></app-svg>
+      </div>
     </div>
   </div>
 </div>
