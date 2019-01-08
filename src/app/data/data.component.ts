@@ -45,7 +45,7 @@ export class DataComponent implements OnInit {
     },
     {
       title: 'Date',
-      class: 'x1'
+      class: 'x3'
     },
     {
       title: 'Available',

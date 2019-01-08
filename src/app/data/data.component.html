@@ -27,29 +27,34 @@
         <td>
           {{items.currency}}
         </td>
-        <td>
+        <td class="x3">
           {{items.date}}
         </td>
         <td>
           {{items.available_tickets}}
         </td>
-        <td>
-          {{items.published}}
+        <td [class]="items.published?'check':'cancel'">
+          <app-svg [name]="items.published?'check':'cancel'"></app-svg>
         </td>
         <td>
-          {{items.autocorrection}}
+          <input type="checkbox" class="checkbox" id="checkbox" [checked]="items.autocorrection" disabled/>
+          <label for="checkbox"></label>
         </td>
         <td>
-          {{items.notification}}
+          <input type="checkbox" class="checkbox" id="checkbox" [checked]="items.notification" disabled/>
+          <label for="checkbox"></label>
         </td>
         <td>
-          {{items.all_sectors}}
+          <input type="checkbox" class="checkbox" id="checkbox" [checked]="items.all_sectors" disabled/>
+          <label for="checkbox"></label>
         </td>
         <td class="x3">
-          {{items.all_venues}}
+          <input type="checkbox" class="checkbox" id="checkbox" [checked]="items.all_venues" disabled/>
+          <label for="checkbox"></label>
         </td>
         <td>
-          {{items.ignore_notes}}
+          <input type="checkbox" class="checkbox" id="checkbox" [checked]="items.ignore_notes" disabled/>
+          <label for="checkbox"></label>
         </td>
         <td>
           {{items.min_price}}
