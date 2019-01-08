@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GivelistService} from '../givelist.service';
 
 @Component({
   selector: 'app-data',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service: GivelistService,) { }
 
   ngOnInit() {
+
+    this.service.getData().subscribe((res: any[]) => {
+      console.log(res);
+
+    });
+
+    // this.service.listViewCreate().then(data => {
+    //   // console.log(data);
+    // });
   }
 
 }
