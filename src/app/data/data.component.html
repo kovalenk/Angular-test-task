@@ -73,22 +73,24 @@
 
   <div class="pagination-config">
     <div class="items-per-page">
-      <span> Items per page: </span>
-
-      <div class="dropdown">
-
-      </div>
+      <label> Items per page: </label>
+      <select (change)= "per_page = +$event.target.value;  listViewCreate(per_page-per_page, per_page)" class="dropdown">
+        <option value="15"> 15 </option>
+        <option *ngFor="let summary of summaries" value={{summary}}>
+          {{summary}}
+        </option>
+      </select>
     </div>
     <div class="current-page">
-      {{page_current}} - {{per_page}} of {{items_length}}
+      {{current_el}} - {{last_el}} of {{items_length}}
     </div>
     <div class="slide">
-      <div class="slide-prev">
+      <button class="slide-prev"  [class.last]="current_el <= 1" (click)="listViewCreate(current_el-per_page, last_el-per_page)" [disabled]="current_el <= 1">
         <app-svg name="arrow-right"></app-svg>
-      </div>
-      <div class="slide-next">
+      </button>
+      <button class="slide-next" (click)="listViewCreate(last_el, last_el+per_page)">
         <app-svg name="arrow-right"></app-svg>
-      </div>
+      </button>
     </div>
   </div>
 </div>

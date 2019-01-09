@@ -8,7 +8,8 @@ import {GivelistService} from '../givelist.service';
 })
 export class DataComponent implements OnInit {
 
-  page_current = 1;
+  current_el = 0;
+  last_el = 15;
   per_page = 15;
   items_length: any;
 
@@ -93,24 +94,25 @@ export class DataComponent implements OnInit {
     },
   ];
 
+  summaries = ['20', '25', '30', '35', '40', '45', '50'];
   constructor(private service: GivelistService) {
   }
 
   ngOnInit() {
 
     this.service.getData().subscribe((res: any) => {
-      console.log(res);
-
       this.items_length = res.result.length;
       this.items = res.result;
-      this.listViewCreate(this.page_current, this.per_page);
+      this.listViewCreate(this.current_el, this.per_page);
     });
 
   }
 
   listViewCreate(begin: number, end: number) {
-    this.current_array = this.items.slice(begin - 1, end);
-    console.log(this.current_array);
+    this.current_el = begin;
+    this.last_el = end;
+    this.current_array = this.items.slice(begin, end);
   }
+
 }
 
